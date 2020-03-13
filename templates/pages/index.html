@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block  content %}
+
+ <!--Showcase-->
+<section class="py-4">
+  <div class="landing">
+        <div class="dark-overlay landing-inner text-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h4 class="display-4">Welcome to Face of Beauty Contest
+                </h4>
+                <p class="lead">Nigeria's topmost beauty contest website</p>
+                <hr>
+                <a href="" class="btn btn-lg btn-info mr-2">Register</a>
+                <a href="" class="btn btn-lg btn-light">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- 
+    , 'url(img/bg1.jpg)'
+    , 'url(img/check.jpg)'
+    , 'url(img/slider-photo4.jpg)'
+    , 'url(img/slider-photo5.jpg)' -->
+
+    <script>
+
+        $(document).ready(function(){
+        var header = $('.landing');
+    
+        var backgrounds = new Array(
+            'url({% static "img/showcase1.jpg" %})'
+            , 'url({% static "img/check.jpg" %})'
+         
+        );
+    
+        var current = 0;
+    
+        function nextBackground() {
+            current++;
+            current = current % backgrounds.length;
+            header.css('background-image', backgrounds[current]);
+        }
+        setInterval(nextBackground, 3500);
+    
+        header.css('background-image', backgrounds[0]);
+        });
+        </script>
+{% endblock  %}

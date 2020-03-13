@@ -1,0 +1,84 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<style>
+  .img-thumbnail{
+    border-radius: 100%;
+    width: 25%;
+    height: auto;
+  }
+
+  #vote{
+    cursor: pointer;
+  }
+
+</style>
+<section class="py-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">List of Contestants</h1>
+      </div>
+      <div class="col-md-6 m-auto">
+        <div class="card shadow-lg rounded">
+          <div class="card-header">
+            <p class="card-title text-center">Choose your most prefered contestant</p>
+          </div>
+          <div class="card-body">
+          <div class="row mb-3">
+            
+                <img src="{% static 'img/contest1.jpg' %}" class="img-thumbnail shadow-lg">
+               <div class="col-md-6 text-center mt-1">
+                <h5>Hope Adekunle</h5>
+                <h4>FUAM</h4>
+                <p>Contestant No: 001</p>
+                <form action="">
+                  <div class="radio">
+                    <label id="vote"><input type="radio" name="vote" class="" id="vote"> Vote </label>
+                  </div>
+                  Total votes: 5
+                </form>
+               </div>
+               
+              </div>
+              <div class="row mb-3">
+                <img src="{% static 'img/contest2.jpg' %}" class="img-thumbnail shadow-lg">
+
+                <div class="col-md-6 text-center mt-1">
+                  <h5>Joy Okakani</h5>
+                  <h4>ABU</h4>
+                  <p>Contestant No: 002</p>
+                  <form action="">
+                    <div class="radio">
+                      <label id="vote"><input type="radio" name="vote" class="" id="vote"> Vote </label>
+                    </div>
+                  </form>
+                 </div>
+              </div>
+
+              <div class="row">
+                <img src="{% static 'img/contest3.jpg' %}" class="img-thumbnail shadow-lg"> 
+                <div class="col-md-6 text-center mt-1">
+                  <h5>Mercy Johnson</h5>
+                  <h4>BSU</h4>
+                  <p>Contestant No: 003</p>
+                  <form action="">
+                    <div class="radio">
+                      <label id="vote"><input type="radio" name="vote" class="" id="vote"> Vote </label>
+                    </div>
+                  </form>
+                 </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" name="vote" class="btn btn-success btn-lg btn-block">Submit Your Vote</button>
+            </div>
+          </div>
+        
+         
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

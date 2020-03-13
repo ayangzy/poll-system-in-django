@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <title>Face of Benue</title>
+</head>
+
+<body>
+    <div class="top-nav bg-success">
+        <div class="container">
+            <ul class="">
+                <li><a href="">Register</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+  <div class="header">
+
+    <!--Top Nav-->
+
+<!--Main Nav-->
+
+<nav class="navbar navbar-expand-md navbar-white bg-white navbar-default sticky-top shadow rounded" id="main-nav">
+    <div class="container">
+        
+        <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="img/logo-connect.png" >
+           <h2 class="text-success">FACE OF BEAUTY CONTEST</h2>
+            <h3 class="d-inline align-middle"></h3>
+        </a>    
+</div>
+
+    </div>	
+</nav>
+  </div>
+
+ 
+{% block content %}
+  
+{% endblock %}
+
+
+
+
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+<footer id="main-footer" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                 <p>Copyright &copy; <span id="year"></span> face of beauty contest &nbsp;<a href="">Terms of Use | </a> <a href="">Privacy Policy</a></p>
+
+            </div>
+            </div>
+            </div>
+        </div>
+    </footer>   
+
+<body>
+  
+</html>
