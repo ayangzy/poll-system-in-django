@@ -37,12 +37,16 @@
                 <h3 class="">Voter's Sign in</h3>
               </div>
               <div class="card-body">
-                <form action="" method="POST">
+              {% if error %}
+                <p class="alert alert-danger">{{ error }}</p>
+                {% endif %}
+                <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
                   <div class="form-group">
-                    <label for="name">UserName</label>
+                    <label for="username">Username</label>
                     <input
                       type="text"
-                      name="name"
+                      name="username"
                       class="form-control shadow-sm rounded"
                     />
                   </div>
@@ -50,7 +54,7 @@
                   <div class="form-group">
                     <label for="password">Password</label>
                     <input
-                      type="text"
+                      type="password"
                       name="password"
                       class="form-control shadow-sm rounded"
                     />
