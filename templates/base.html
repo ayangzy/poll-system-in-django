@@ -15,11 +15,23 @@
 <body>
     <div class="top-nav bg-success">
         <div class="container">
-            <ul class="">
+        {% if user.is_authenticated %}
+           <ul class="">
+                <li><a href="">Welcome, {{user.email}}</a></li>
+                <li><a href="javascript:{document.getElementById('logout').submit()}">logout</a></li>
+
+                <form action="{% url 'logout' %}" method="POST" id="logout">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+        </ul>
+        {% else %}
+        <ul class="">
                 <li><a href="{% url 'register' %}">Register</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="">Contact</a></li>
-            </ul>
+        </ul>
+        {% endif %}
         </div>
     </div>
   <div class="header">
