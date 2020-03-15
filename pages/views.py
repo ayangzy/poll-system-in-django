@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.contrib import messages
 from .models import Contestant
 
 
@@ -25,4 +26,6 @@ def vote(request, contestant_id):
         cons.votes_total += 1
         cons.save()
         auth.logout(request)
+        messages.success(
+            request, 'You have successfully voted for contestant of your choice. Thanks')
         return redirect('index')
