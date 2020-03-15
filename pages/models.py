@@ -8,6 +8,7 @@ class Contestant(models.Model):
     school = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images/%Y/%m/%d/')
     votes_total = models.IntegerField(default=0)
+    user_id = models.IntegerField(default=0)
 
 
 def __str__(self):

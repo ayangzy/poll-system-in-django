@@ -22,10 +22,20 @@ def contestants(request):
 @login_required(login_url='accounts/login')
 def vote(request, contestant_id):
     if request.method == 'POST':
+        user_id = request.POST['user_id']
+        if request.user.is_authenticated:
+            user_id = request.user.id
+            has_alreadyvoted = Contestant.objects.all().filter(user_id=user_id)
+            if has_alreadyvoted:
+                messages.warning(
+                    request, 'Sorry! already voted. You can only vote once')
+                return redirect('contestants')
+
         cons = get_object_or_404(Contestant, pk=contestant_id)
         cons.votes_total += 1
+        cons.user_id = request.POST['user_id']
         cons.save()
-        auth.logout(request)
+        # auth.logout(request)
         messages.success(
-            request, 'You have successfully voted for contestant of your choice. Thanks')
-        return redirect('index')
+            request, 'You have successfully polled your prefered contestant. Thanks')
+        return redirect('contestants')

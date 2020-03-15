@@ -5,7 +5,7 @@ from .models import Contestant
 
 
 class ContestantAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'school', 'votes_total')
+    list_display = ('id', 'name', 'school', 'votes_total', 'user_id')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     list_per_page = 25
